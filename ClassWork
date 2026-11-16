@@ -1,0 +1,52 @@
+ // 1) Създаване на списък от думи
+ Console.WriteLine("Enter words:");
+
+ string input = Console.ReadLine();
+
+ List<string> words = input.Split(' ').ToList();
+
+
+ // Count
+ Console.WriteLine($"Брой елементи: {words.Count}");
+
+ // 2)Обръщане на списъка от думи
+
+ Console.WriteLine("Reversed:");
+ words.Reverse();
+ Console.WriteLine(string.Join("; ", words));
+
+ // 3) Проверка за наличие на дума
+ Console.WriteLine("======= Contains =========");
+ Console.Write("Enter searching word: ");
+ string searchWord = Console.ReadLine();
+ if (words.Contains(searchWord))
+ {
+     Console.WriteLine("found");
+ }
+ else
+     Console.WriteLine("not found");
+
+ Console.WriteLine("======= IndexOf =======");
+ int index = words.IndexOf(searchWord);
+ if(index >= 0)
+ {
+     Console.WriteLine("found");
+ }
+ else Console.WriteLine("not found");
+
+ // 4) Думи с четна дължина 
+ List<string> repeatedEven = new List<string>();
+
+ foreach (string w in words)
+ {
+     if(w.Length % 2 == 0)
+     {
+         repeatedEven.Add(w);
+     }
+
+ }
+
+ // 5) Извеждане на елементите с четен брой букви
+ Console.WriteLine("Repeated Even-Length Words:");
+
+ Console.WriteLine(string.Join(", ", repeatedEven));
